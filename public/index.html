@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+    <title>Memograph</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dokdo" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+
+</head>
+<body>
+    <div id="title">
+            <p>MemoGraph</p><h5>- Share your precious moments</h5>
+    </div>
+    <div id="main">
+        <div class="main">
+            <h3>Add Your Memories</h3>
+            <input class="my-input" v-model="imgFormInfo.title" type="text" placeholder="Title" required>
+            <input class="my-input" v-model="imgFormInfo.description" type="text" placeholder="Description" required>
+            <input class="my-input" v-model="imgFormInfo.username" type="text" placeholder="Username" required><br>
+            <input class="btn-input" @change="selectFile" type="file">
+            <label for="file">Choose a file</label>
+            <button class="btn" v-on:click="uploadImage">Upload Image!</button>
+        </div>
+
+    <div class="container" >
+        <div class="image-container" v-for="image in images" v-if="images.length > 0">
+            <img v-bind:src="image.url" alt="" v-on:click="openModal(image.id)">
+            <p><strong>{{image.title}}</strong></p>
+            <p>{{image.description}}</p>
+            <div class="bodyblur">
+            </div>
+        </div>
+    </div>
+    <div class="more">
+        <button id="more" type="button" v-on:click="moreImages">Load More Images</button>
+    </div>
+
+    <modal-component
+    v-if="currentImageId"
+    v-bind:id="currentImageId"
+    v-on:close="closeModal"
+    >
+</modal-component>
+    </div>
+    <script id="modal-template" type="text/x-template">
+        <div class="modal">
+    		<div class="modal-container">
+    			<button id="btnx" v-on:click="closeModal">X</button>
+                <div id="modal-image-container"><img v-bind:src="image.url" alt=""></div>
+                <div id="modal-title-container">
+                            <img src="./images/camera.jpg">
+                    <p>{{image.title}}</p>
+                    <hr>
+                </div>
+                <div id="modal-comments-container">
+                    <div v-for="comment in comments" v-if="comments.length > 0">
+                    <span id="comment"><strong> {{comment.username}}</strong> {{comment.comment}}</span>
+                    <span id="tooltip"><em>added on {{comment.created_at}}</em></span>
+                    </div>
+                </div>
+                <div id="addcomments-container">
+                    <input class="myInput" v-model="commentFormInfo.username" name="username" placeholder="username" required>
+                    <button v-on:click="addComment">submit</button>
+                    <textarea v-model="commentFormInfo.comment" class="expand myInput" rows="1" cols="10" name="comment" placeholder="add comment">
+                    </textarea>
+                </div>
+    		</div>
+            <img id="diana" src="./images/diana.png">
+        </div>
+    </script>
+<script>
+
+
+
+if (annyang) {
+    function scroll() {
+     window.scrollTo({
+       top: 5000,
+       behavior: "smooth"
+        })
+    }
+ var commands = {
+ 'hello joy': function () {
+     document.getElementById("diana").style.display = "block";
+     setTimeout(() => {
+         document.getElementById("diana").style.display = "none"
+     }, 5000)
+ },
+ 'joy more': function() {
+     console.log('more');
+     document.getElementById("more").click();
+     setTimeout(scroll, 1000);
+ },
+ 'joy close' : function() {
+     console.log('btnx');
+     document.getElementById("btnx").click();
+ },
+ 'joy play': function() {
+     console.log('play');
+     document.getElementById("thug").style.display = "block";
+     setTimeout(function() {
+         window.scrollTo(0,document.body.scrollHeight)
+     },1500);
+     setTimeout(function() {
+         document.getElementById("thug").click()
+     }, 1000);
+ },
+};
+  annyang.addCommands(commands);
+  annyang.start();
+}
+</script>
+
+<video id="thug" height="100%" controls="controls" preload="none" onclick="this.play()">
+<source type="video/mp4" src="./images/thug.mp4">
+</video>
+
+    <script src="/js/vue.js"></script>
+    <script src="/js/axios.min.js"></script>
+    <script src="/js/script.js"></script>
+</body>
+</html>

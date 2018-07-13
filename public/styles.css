@@ -1,0 +1,326 @@
+body {
+    font-family: 'Roboto Slab', serif;
+    color: #e68a00;
+}
+
+.my-input {
+    margin: 5px;
+    color: tomato;
+    height: 40px;box-sizing: border-box; letter-spacing: 1px;
+    outline: none;
+    border: 1px solid #e68a00;
+}
+
+.my-input:focus {
+    transition: 0.4s;
+    height: 45px; border:
+    3px solid #cc3300;
+    z-index: 1;
+    outline: none;}
+
+#title {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0;
+    margin-bottom: 20%;
+    height: 15%;
+    background-color: #e68a00;
+    font-family: 'Dokdo', cursive;
+    display: block;
+}
+
+#title h5 {
+    margin-top: 3.5%;
+    margin-left: 25%;
+    color: white;
+}
+
+#title p {
+    font-family: 'Dokdo', cursive;
+    position: absolute;
+    font-size: 4em;
+    padding: 0;
+    margin: 0;
+    top: -4.5%;
+    left: 0;
+    color: white;
+}
+
+.main {
+        margin-top: 10%;
+}
+
+.main input {
+
+    margin-bottom: 20px;
+}
+
+.btn-input {
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+}
+
+
+.btn-input + label {
+    width: 200px;
+    height:40px;
+    font-size: 1em;
+    font-weight: 500;
+    color: white;
+    line-height: 2.6em;
+    text-align: center;
+    background-color: #e68a00;
+    display: inline-block;
+    border-radius: 10px;
+    transition: 150ms;
+}
+
+.btn:hover,
+.btn-input:focus + label,
+.btn-input + label:hover {
+    background-color: #b36b00;
+    cursor:pointer;
+}
+
+.btn:focus + label {
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px;
+}
+
+.btn {
+    margin-left: 8%;
+    width: 200px;
+    height:40px;
+    font-size: 1em;
+    font-weight: 500;
+    color: white;
+    text-align: center;
+    border: 1px solid #e68a00;
+    background-color: #e68a00;
+    border-radius: 10px;
+    transition: 150ms;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+    align-items: flex-start;
+    flex-grow: 1,2,1;
+}
+
+.image-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 350px;
+    height: 360px;
+    border: 1px solid  #e68a00;
+    border-radius: 2%;
+    justify-content: center;
+    text-align: center;
+}
+
+.image-container img {
+    margin-top: 5px;
+    width: 340px;
+    height: 250px;
+
+}
+
+.container img:hover {
+	transform: scale(1.03);
+	opacity: 1.2;
+}
+
+.container img {
+	opacity: 1;
+	transition: 0.5s;
+}
+
+.modal {
+    position: fixed;
+    text-align: center;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.9);
+}
+
+.modal-container {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 2 1;
+    position: fixed;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    top: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 70%;
+    height: 90%;
+}
+
+.modal-container div {
+    color: black;
+}
+
+#modal-image-container {
+    position: fixed;
+    width: 45.1%;
+    height: 90%;
+    background-color: white;
+}
+#modal-image-container img{
+    height: 100%;
+    width: 100%;
+}
+
+#modal-title-container {
+    vertical-align: center;
+    position: fixed;
+    right: 15%;
+    width: 24.9%;
+    height: 8.1%;
+    background: white;
+    vertical-align: c
+}
+#modal-title-container p {
+    margin-top: 12px;
+    margin-bottom: 0;
+    padding: 0;
+    display: inline-block;
+}
+#modal-title-container img {
+    position: absolute;
+    height: 30px;
+    width: 35px;
+    left: 10%;
+    bottom: 30%;
+}
+
+hr {
+    border: 0; height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0));
+    z-index: 2;
+}
+
+#modal-comments-container {
+    font-size: 13px;
+    text-align: left;
+    position: absolute;
+    width: 35.6%;
+    height: 81.5%;
+    right: 0;
+    top: 9%;
+    overflow: auto;
+    background: white;
+    }
+
+#modal-comments-container div {
+    margin: 5px;
+    margin-left: 15px;
+}
+#modal-comments-container div:hover #tooltip {
+    visibility: visible;
+}
+
+#tooltip {
+    font-size: 12px;
+    float: right;
+    color: white;
+    visibility: hidden;
+    border-radius: 5%;
+    background: black;
+}
+
+#addcomments-container {
+position: fixed;
+    height: 9%;
+    bottom: 5.8%;
+    background: white;
+    right: 15%;
+    width: 24.9%;
+}
+
+#addcomments-container input {
+    float: left;
+    position: relative;
+    width: 70%;
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+
+#addcomments-container button {
+    margin-top: -2px;
+    margin-right: 5px;
+    float: right;
+    position: relative;
+    border: 1px solid #e68a00;
+    background-color: #e68a00;
+    color: white;
+}
+
+textarea:focus {
+    height: 3em;
+}
+
+textarea {
+    position: relative;
+    height: 1em;
+    width: 95%;
+    float: left;
+    transition: all 0.5s ease;
+    margin-left: 4px;
+}
+
+
+
+#diana {
+    height: 80%;
+    width: 80%;
+    transform: rotate(315deg);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+     transition-duration: 5s;
+    display: none;
+}
+
+.more {
+    margin: 10px;
+    text-align: center;
+    visibility: hidden;
+}
+
+#btnx {
+    display: none;
+    border: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    background-color: transparent;
+    color: white;
+}
+
+#thug {
+    height: 100%;
+    width: 100%;
+    display: none;
+}
